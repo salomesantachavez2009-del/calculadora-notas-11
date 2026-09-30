@@ -15,14 +15,11 @@ function calcular() {
 
     let promedio = (nota1 + nota2 + nota3) / 3;
 
-    let estado;
-
     if (promedio >= 3) {
-        estado = "Aprobado";
+        document.getElementById("resultado").innerHTML =
+            "Promedio: " + promedio.toFixed(2) + "<br>Aprobado";
     } else {
-        estado = "No aprobado";
+        document.getElementById("resultado").innerHTML =
+            "Promedio: " + promedio.toFixed(2) + "<br>No aprobado";
     }
-
-    document.getElementById("resultado").innerHTML =
-        "Promedio: " + promedio.toFixed(2) + "<br>" + estado;
 }
