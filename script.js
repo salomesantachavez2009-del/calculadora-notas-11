@@ -1,27 +1,20 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora de Notas</title>
-    <link rel="stylesheet" href="style.css">
-</head>
+function calcular() {
+    let nota1 = Number(document.getElementById("nota1").value);
+    let nota2 = Number(document.getElementById("nota2").value);
+    let nota3 = Number(document.getElementById("nota3").value);
 
-<body>
+    if (
+        nota1 < 0 || nota1 > 5 ||
+        nota2 < 0 || nota2 > 5 ||
+        nota3 < 0 || nota3 > 5
+    ) {
+        document.getElementById("resultado").innerHTML =
+            "Las notas deben estar entre 0 y 5.";
+        return;
+    }
 
-    <h1>Calculadora de Notas</h1>
+    let promedio = (nota1 + nota2 + nota3) / 3;
 
-    <p>Ingresa tus notas para calcular tu promedio:</p>
-
-    <input type="number" id="nota1" placeholder="Nota 1">
-    <input type="number" id="nota2" placeholder="Nota 2">
-    <input type="number" id="nota3" placeholder="Nota 3">
-
-    <button onclick="calcular()">Calcular</button>
-
-    <h2 id="resultado"></h2>
-
-    <script src="script.js"></script>
-
-</body>
-</html>
+    document.getElementById("resultado").innerHTML =
+        "Promedio: " + promedio.toFixed(2);
+}
